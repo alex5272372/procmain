@@ -1,4 +1,4 @@
 body {
-    background-image: url("http://procmain.eu/img/bg.jpg");
-    background-size: cover;
+    background-image: url("http://procmain.eu/img/bg.jpg") !important;
+    background-size: cover !important;
 }
