@@ -1,4 +1,41 @@
 body {
+    margin: 0;
     background-image: url("http://procmain.eu/img/bg.jpg") !important;
-    background-size: cover !important;
+    background-size: cover;
+    background-attachment: fixed;
+    text-align: center;
+}
+.pm-header {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+.pm {
+    margin: 0 auto;
+    width: 1200px;
+    font-family: Arial, sans-serif;
+}
+.pm-header .pm {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+}
+.pm-logo {
+    font-size: 30px;
+    font-weight: bold;
+    color: yellow;
+}
+.pm-menu-item {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+    height: 30px;
+    border: 1px solid black;
+    border-radius: 4px;
+    font-size: 15px;
+    text-decoration: none;
+    color: yellow;
+}
+.pm-menu-item:hover {
+    background-color: black;
 }
