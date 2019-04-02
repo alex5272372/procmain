@@ -20,9 +20,27 @@ body {
     height: 50px;
 }
 .pm-logo {
+    position: relative;
+    margin-left: 50px;
     font-size: 30px;
     font-weight: bold;
-    color: yellow;
+    color: lightyellow;
+}
+.pm-logo-img {
+    position: absolute;
+    left: -50px;
+    height: 50px;
+    transform-origin: 35px 31px;
+    animation: hammer-animation 5s ease-in-out 0s infinite;
+    animation-direction: alternate;
+}
+@keyframes hammer-animation{
+    80%{
+        transform: rotate(0);
+    }
+    100%{
+        transform: rotate(-180deg);
+    }
 }
 .pm-menu-item {
     display: inline-flex;
@@ -34,7 +52,7 @@ body {
     border-radius: 4px;
     font-size: 15px;
     text-decoration: none;
-    color: yellow;
+    color: lightyellow;
 }
 .pm-menu-item:hover {
     background-color: black;
