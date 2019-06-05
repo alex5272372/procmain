@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/alex5272372/procmain#readme",
   "devDependencies": {
+    "body-parser": "^1.19.0",
     "express": "^4.16.4",
     "express-handlebars": "^3.0.2",
     "pg": "^7.10.0"

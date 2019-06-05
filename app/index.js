@@ -1,9 +1,13 @@
-//const path = require('path');
+const path = require('path');
 const express = require('express');
+//const bodyParser = require('body-parser');
 //const exphbs = require('express-handlebars');
 const app = express();
 
-/*app.engine('.hbs', exphbs({
+/*app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
+
+app.engine('.hbs', exphbs({
     defaultLayout: 'main',
     extname: '.hbs',
     layoutsDir: path.join(__dirname, 'views/layouts')
@@ -13,13 +17,13 @@ app.set('views', path.join(__dirname, 'views'));*/
 
 app.listen(3000, () => console.log('App listening on port 3000'));
 
-app.post('/', function(req, res) {
-    /*res.render('home', {
+/*app.post('/', function(req, res) {
+    res.render('home', {
         name: 'John'
-    });*/
+    });
     console.log(req.body);
     res.sendStatus(200);
-});
+});*/
 
 /*const {Pool, Client} = require('pg');
 
