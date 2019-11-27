@@ -10,8 +10,6 @@ import Tooltip from "@material-ui/core/Tooltip";
 
 // @material-ui/icons
 import { Apps, CloudDownload } from "@material-ui/icons";
-import DeleteIcon from "@material-ui/icons/Delete";
-import IconButton from "@material-ui/core/IconButton";
 
 // core components
 import CustomDropdown from "components/CustomDropdown/CustomDropdown.js";
@@ -29,7 +27,7 @@ export default function HeaderLinks(props) {
         <CustomDropdown
           noLiPadding
           navDropdown
-          buttonText="Components"
+          buttonText="Catalogs"
           buttonProps={{
             className: classes.navLink,
             color: "transparent"
@@ -37,27 +35,53 @@ export default function HeaderLinks(props) {
           buttonIcon={Apps}
           dropdownList={[
             <Link href="/components">
-              <a className={classes.dropdownLink}>All components</a>
+              <a className={classes.dropdownLink}>Users</a>
             </Link>,
-            <a
-              href="https://creativetimofficial.github.io/nextjs-material-kit/#/documentation?ref=njsmk-navbar"
-              target="_blank"
-              className={classes.dropdownLink}
-            >
-              Documentation
-            </a>
+            <Link href="/components">
+              <a className={classes.dropdownLink}>Entries</a>
+            </Link>
           ]}
         />
       </ListItem>
       <ListItem className={classes.listItem}>
-        <Button
-          href="https://www.creative-tim.com/product/nextjs-material-kit?ref=njsmk-navbar"
-          color="transparent"
-          target="_blank"
-          className={classes.navLink}
-        >
-          <CloudDownload className={classes.icons} /> Download
-        </Button>
+        <CustomDropdown
+          noLiPadding
+          navDropdown
+          buttonText="Documents"
+          buttonProps={{
+            className: classes.navLink,
+            color: "transparent"
+          }}
+          buttonIcon={Apps}
+          dropdownList={[
+            <Link href="/components">
+              <a className={classes.dropdownLink}>Order</a>
+            </Link>,
+            <Link href="/components">
+              <a className={classes.dropdownLink}>Operation</a>
+            </Link>
+          ]}
+        />
+      </ListItem>
+      <ListItem className={classes.listItem}>
+        <CustomDropdown
+          noLiPadding
+          navDropdown
+          buttonText="Reports"
+          buttonProps={{
+            className: classes.navLink,
+            color: "transparent"
+          }}
+          buttonIcon={Apps}
+          dropdownList={[
+            <Link href="/components">
+              <a className={classes.dropdownLink}>Profit and Loss</a>
+            </Link>,
+            <Link href="/components">
+              <a className={classes.dropdownLink}>Simple list</a>
+            </Link>
+          ]}
+        />
       </ListItem>
       <ListItem className={classes.listItem}>
         {/*<Tooltip title="Delete">
