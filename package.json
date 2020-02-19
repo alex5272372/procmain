@@ -2,6 +2,7 @@
   "name": "bulma-start",
   "version": "0.0.3",
   "description": "Start package for Bulma",
+  "main": "app.js",
   "keywords": [
     "sass",
     "bulma",
@@ -26,12 +27,17 @@
   },
   "scripts": {
     "css-deploy": "npm run css-build && npm run css-postcss",
-    "css-build": "node-sass _sass/main.scss css/main.css",
-    "css-postcss": "postcss --use autoprefixer --output css/main.css css/main.css",
+    "css-build": "node-sass _sass/main.scss public/css/main.css",
+    "css-postcss": "postcss --use autoprefixer --output public/css/main.css public/css/main.css",
     "css-watch": "npm run css-build -- --watch",
     "deploy": "npm run css-deploy && npm run js-build",
-    "js-build": "babel _javascript --out-dir lib",
+    "js-build": "babel _javascript --out-dir public/lib",
     "js-watch": "npm run js-build -- --watch",
     "start": "npm-run-all --parallel css-watch js-watch"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1"
   }
 }
