@@ -1,13 +1,26 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <%- include('common/head') %>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Profit and Loss Statement</title>
+  <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
 
-<%- include('common/header') %>
-<%- include('navbar') %>
-<%- include('common/footer') %>
+<div class="columns">
+  <div class="column">
+    <%- include('common/leftBar') %>
+  </div>
+  <div class="column is-three-fifths">
+    <%- include('common/content') %>
+  </div>
+  <div class="column">
+    <%- include('common/rightBar') %>
+  </div>
+</div>
 
+<script type="text/javascript" src="lib/main.js"></script>
 </body>
 </html>
