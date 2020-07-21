@@ -14,7 +14,13 @@
     <%- include('common/leftBar') %>
   </div>
   <div class="column is-three-fifths">
-    <%- include('common/content') %>
+    <section class="section">
+      <div class="content">
+        <%- include('common/header') %>
+        <%- include(content) %>
+        <%- include('common/footer') %>
+      </div>
+    </section>
   </div>
   <div class="column">
     <%- include('common/rightBar') %>
