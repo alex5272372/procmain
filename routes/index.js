@@ -3,9 +3,18 @@ const client = new Client()
 
 module.exports = function(app) {
   app.get('/', async function(req, res) {
-    await client.connect()
-    const result = await client.query('SELECT $1::varchar AS my_first_query', ['node hero'])
+    let result
+    try {
+      await client.connect()
+      result = await client.query('SELECT $1::varchar AS my_first_query', ['node hero'])
+    } catch (err) {
+      console.log(err.stack)
+    }
     res.render('main', { content: 'dashboard', data: result.rows[0].my_first_query })
-    await client.end()
+    try {
+      await client.end()
+    } catch (err) {
+      console.log(err.stack)
+    }
   });
 }
