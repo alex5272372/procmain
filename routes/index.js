@@ -1,11 +1,5 @@
 const { Client } = require('pg')
-const client = new Client({
-  user: 'postgres',
-  host: 'procmain.eu',
-  database: 'acc',
-  password: 'FS9final',
-  port: 5432
-})
+const client = new Client()
 
 module.exports = function(app) {
   app.get('/', async function(req, res) {
