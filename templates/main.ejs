@@ -11,20 +11,18 @@
 
 <div class="columns">
   <div class="column">
-    <%- include('common/leftBar') %>
+    <%- include('common/menu') %>
   </div>
-  <div class="column is-three-fifths">
-    <section class="section">
-      <div class="content">
-        <%- include('common/header') %>
-        <%- include(content) %>
-        <%- include('common/footer') %>
-      </div>
-    </section>
-  </div>
-  <div class="column">
-    <%- include('common/rightBar') %>
-  </div>
+  <% if (list) { %>
+    <div class="column <% if (detail) { %>is-three-fifths<% }else { %>is-four-fifths<% } %>">
+      <%- include('common/list') %>
+    </div>
+  <% } %>
+  <% if (detail) { %>
+    <div class="column<% if (!list) { %> is-four-fifths<% } %>">
+      <%- include('common/detail') %>
+    </div>
+  <% } %>
 </div>
 
 <script type="text/javascript" src="lib/main.js"></script>

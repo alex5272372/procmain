@@ -5,7 +5,7 @@ module.exports = function(app) {
   app.get('/users', async function(req, res) {   
     try {
       const result = await pool.query('SELECT id, name FROM users')
-      res.render('main', { content: 'users', rows: result.rows })
+      res.render('main', { list: 'users', detail: false, rows: result.rows })
     } catch (err) {
       console.log(err.message)
       res.sendStatus(500)
