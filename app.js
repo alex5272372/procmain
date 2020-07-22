@@ -8,7 +8,7 @@ process.env.PGPASSWORD = 'FS9final'
 process.env.PGDATABASE = 'acc'
 process.env.PGPORT = 5432
 
-let app = express();
+let app = express()
 
 app.set('views', __dirname + '/templates')
 app.set('view engine', 'ejs')

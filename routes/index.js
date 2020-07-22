@@ -10,5 +10,5 @@ module.exports = function(app) {
       console.log(err.message)
       res.sendStatus(500)
     }
-  });
+  })
 }
