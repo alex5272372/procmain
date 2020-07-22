@@ -1,20 +1,14 @@
-const { Client } = require('pg')
-const client = new Client()
+const { Pool } = require('pg')
+const pool = new Pool()
 
 module.exports = function(app) {
-  app.get('/users', async function(req, res) {
-    let result
+  app.get('/users', async function(req, res) {   
     try {
-      await client.connect()
-      result = await client.query('SELECT id, name FROM users')
+      const result = await pool.query('SELECT id, name FROM users')
+      res.render('main', { content: 'users', rows: result.rows })
     } catch (err) {
-      console.log(err.stack)
-    }
-    res.render('main', { content: 'users', rows: result.rows })
-    try {
-      await client.end()
-    } catch (err) {
-      console.log(err.stack)
+      console.log(err.message)
+      res.sendStatus(500)
     }
   });
 }
