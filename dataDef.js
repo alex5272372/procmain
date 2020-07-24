@@ -14,7 +14,7 @@ async function dataDef(dbName) {
 
   await client.connect()
   try {
-    for (let q of queries) {
+    for (const q of queries) {
       console.log(q)
       await client.query(q)
     }
@@ -26,13 +26,14 @@ async function dataDef(dbName) {
   client = new Client()
 
   queries = [
-    'CREATE TABLE users (id SERIAL, name varchar(50))',
-    'CREATE TABLE roles (id SERIAL, name varchar(50))'
+    'CREATE TABLE users (id SERIAL PRIMARY KEY, name varchar(50))',
+    'CREATE TABLE roles (id SERIAL PRIMARY KEY, name varchar(50))',
+    'CREATE TABLE groups (id SERIAL PRIMARY KEY, user_id INTEGER REFERENCES users (id), role_id INTEGER REFERENCES roles (id))'
   ]
 
   await client.connect()
   try {
-    for (let q of queries) {
+    for (const q of queries) {
       console.log(q)
       await client.query(q)
     }

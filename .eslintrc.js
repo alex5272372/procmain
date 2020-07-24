@@ -25,6 +25,25 @@ module.exports = {
     'semi': [
       'error',
       'never'
+    ],
+    'prefer-const': ['error', {
+      'destructuring': 'any',
+      'ignoreReadBeforeAssign': false
+    }],
+    'prefer-destructuring': ['error',
+      {
+        'VariableDeclarator': {
+          'array': false,
+          'object': true
+        },
+        'AssignmentExpression': {
+          'array': true,
+          'object': true
+        }
+      },
+      {
+        'enforceForRenamedProperties': false
+      }
     ]
   }
 }

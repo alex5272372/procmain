@@ -1,5 +1,5 @@
 {
-  "name": "bulma-start",
+  "name": "accounting",
   "version": "0.0.3",
   "description": "Start package for Bulma",
   "main": "app.js",
@@ -16,10 +16,10 @@
   },
   "license": "MIT",
   "devDependencies": {
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.10.5",
+    "@babel/preset-env": "^7.10.4",
     "autoprefixer": "^9.8.5",
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-es2015-ie": "^6.7.0",
     "bulma": "^0.9.0",
     "eslint": "^7.5.0",
     "node-sass": "^4.14.1",
