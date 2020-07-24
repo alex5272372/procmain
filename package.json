@@ -1,7 +1,7 @@
 {
   "name": "accounting",
   "version": "0.0.3",
-  "description": "Start package for Bulma",
+  "description": "Business accounting",
   "main": "app.js",
   "keywords": [
     "sass",
@@ -9,10 +9,10 @@
     "css",
     "start"
   ],
-  "author": "Jeremy Thomas <bbxdesign@gmail.com> (http://jgthms.com)",
+  "author": "business accounting <alex5272372@gmail.com> (http://procmain.eu)",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jgthms/bulma-start.git"
+    "url": "git+https://github.com/alex5272372/procmain.git"
   },
   "license": "MIT",
   "devDependencies": {
