@@ -9,7 +9,7 @@ module.exports = function(app) {
         JOIN users ON groups.user_id = users.id
         JOIN roles ON groups.role_id = roles.id
       `)
-      res.render('main', { list: 'groups', detail: false, rows: result.rows })
+      res.render('main', { list: 'list/groups', detail: false, rows: result.rows })
     } catch (err) {
       console.log(err.message)
       res.sendStatus(500)

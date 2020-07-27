@@ -28,7 +28,10 @@ async function dataDef(dbName) {
   queries = [
     'CREATE TABLE users (id SERIAL PRIMARY KEY, name varchar(50))',
     'CREATE TABLE roles (id SERIAL PRIMARY KEY, name varchar(50))',
-    'CREATE TABLE groups (id SERIAL PRIMARY KEY, user_id INTEGER REFERENCES users (id), role_id INTEGER REFERENCES roles (id))'
+    'CREATE TABLE groups (id SERIAL PRIMARY KEY, user_id INTEGER REFERENCES users (id), role_id INTEGER REFERENCES roles (id))',
+    'CREATE TABLE organizations (id SERIAL PRIMARY KEY, name varchar(50))',
+    'CREATE TABLE customers (id SERIAL PRIMARY KEY, name varchar(50))',
+    'CREATE TABLE products (id SERIAL PRIMARY KEY, name varchar(50))'
   ]
 
   await client.connect()
