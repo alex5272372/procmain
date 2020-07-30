@@ -1,7 +1,48 @@
 document.addEventListener('DOMContentLoaded', () => {
-  console.log('Hello Bulma!')
+  switch (document.location.pathname) {
+  case '/':
+    document.getElementById('menu__dashboard').className = 'is-active'
+    break
+
+  case '/users':
+    document.getElementById('menu__users').className = 'is-active'
+    break
+    
+  case '/roles':
+    document.getElementById('menu__roles').className = 'is-active'
+    break
+    
+  case '/groups':
+    document.getElementById('menu__groups').className = 'is-active'
+    break
+  
+  case '/settings':
+    document.getElementById('menu__settings').className = 'is-active'
+    break
+
+  case '/organizations':
+    document.getElementById('menu__organizations').className = 'is-active'
+    break
+
+  case '/customers':
+    document.getElementById('menu__customers').className = 'is-active'
+    break
+
+  case '/products':
+    document.getElementById('menu__products').className = 'is-active'
+    break
+
+  case '/invoices':
+    document.getElementById('menu__invoices').className = 'is-active'
+    break
+
+  case '/orders':
+    document.getElementById('menu__orders').className = 'is-active'
+    break
+  }
 })
 
+// eslint-disable-next-line no-unused-vars
 function menuClick(el) {
-  el.className = 'is-active'
+  Array.prototype.forEach.call(document.getElementsByClassName('is-active'), e => e.className = '')
 }
