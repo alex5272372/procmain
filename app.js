@@ -24,5 +24,8 @@ require('./routes/settings')(app)
 require('./routes/organizations')(app)
 require('./routes/customers')(app)
 require('./routes/products')(app)
+require('./routes/invoices')(app)
+require('./routes/orders')(app)
+require('./routes/balance')(app)
 
 app.listen(process.env.PORT, () => console.log(`Server is listening on port ${process.env.PORT}`))

@@ -39,6 +39,10 @@ document.addEventListener('DOMContentLoaded', () => {
   case '/orders':
     document.getElementById('menu__orders').className = 'is-active'
     break
+  
+  case '/balance':
+    document.getElementById('menu__balance').className = 'is-active'
+    break
   }
 })
 

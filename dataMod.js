@@ -24,13 +24,16 @@ async function dataDef(dbName) {
     (2, 3, 1)`,
     `INSERT INTO organizations
     (id, name) VALUES
-    (1, 'My company')`,
+    (1, 'Awesome company')`,
     `INSERT INTO customers
     (id, name) VALUES
-    (1, 'My customer')`,
+    (1, 'Intex'),
+    (2, 'Bestway')`,
     `INSERT INTO products
     (id, name) VALUES
-    (1, 'My product')`
+    (1, 'Swimming pool'),
+    (2, 'Filter pump'),
+    (3, 'Filter cartridge')`
   ]
 
   await client.connect()
