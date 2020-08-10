@@ -47,6 +47,12 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 // eslint-disable-next-line no-unused-vars
-function menuClick(el) {
+function menuClick() {
   Array.prototype.forEach.call(document.getElementsByClassName('is-active'), e => e.className = '')
+}
+
+// eslint-disable-next-line no-unused-vars
+function tableClick(el) {
+  Array.prototype.forEach.call(document.getElementsByClassName('is-selected'), e => e.className = '')
+  el.className = 'is-selected'
 }

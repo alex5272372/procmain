@@ -1,5 +1,5 @@
 <div class="table-container">
-  <table class="table is-bordered">
+  <table class="table is-bordered is-hoverable">
     <thead>
       <tr>
         <th>id</th>
@@ -8,7 +8,7 @@
     </thead>
     <tbody>
       <% for (let i = 0; i < rows.length; i++) {%>
-        <tr>
+        <tr onclick="tableClick(this)">
           <td><%= rows[i].id %></td>
           <td><%= rows[i].doc_date %></td>
         </tr>
