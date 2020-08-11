@@ -26,30 +26,49 @@ async function dataDef(dbName) {
   client = new Client()
 
   queries = [
-    'CREATE TABLE users (id SERIAL PRIMARY KEY, name varchar(50))',
-    'CREATE TABLE roles (id SERIAL PRIMARY KEY, name varchar(50))',
-    'CREATE TABLE groups (id SERIAL PRIMARY KEY, user_id INTEGER REFERENCES users (id), role_id INTEGER REFERENCES roles (id))',
-    'CREATE TABLE organizations (id SERIAL PRIMARY KEY, name varchar(50))',
-    'CREATE TABLE customers (id SERIAL PRIMARY KEY, name varchar(50))',
-    'CREATE TABLE products (id SERIAL PRIMARY KEY, name varchar(50))',
+    `CREATE TABLE users (
+      id SERIAL PRIMARY KEY NOT NULL,
+      username varchar(50),
+      name varchar(100),
+      email varchar(80),
+      tel varchar(20),
+      token TEXT,
+      password_digest TEXT,
+      created_at TIMESTAMP)`,
+    `CREATE TABLE roles (
+      id SERIAL PRIMARY KEY NOT NULL,
+      name varchar(50))`,
+    `CREATE TABLE groups (
+      id SERIAL PRIMARY KEY NOT NULL,
+      user_id INTEGER REFERENCES users (id),
+      role_id INTEGER REFERENCES roles (id))`,
+    `CREATE TABLE organizations (
+      id SERIAL PRIMARY KEY NOT NULL,
+      name varchar(50))`,
+    `CREATE TABLE customers (
+      id SERIAL PRIMARY KEY NOT NULL,
+      name varchar(50))`,
+    `CREATE TABLE products (
+      id SERIAL PRIMARY KEY NOT NULL,
+      name varchar(50))`,
     `CREATE TABLE invoices (
-      id SERIAL PRIMARY KEY,
+      id SERIAL PRIMARY KEY NOT NULL,
       doc_date timestamptz,
       organization_id INTEGER REFERENCES organizations (id),
       customer_id INTEGER REFERENCES customers (id))`,
     `CREATE TABLE invoices_det (
-      id SERIAL PRIMARY KEY,
+      id SERIAL PRIMARY KEY NOT NULL,
       invoice_id INTEGER REFERENCES invoices (id),
       product_id INTEGER REFERENCES products (id),
       quantity NUMERIC(15, 3),
       amount money)`,
     `CREATE TABLE orders (
-      id SERIAL PRIMARY KEY,
+      id SERIAL PRIMARY KEY NOT NULL,
       doc_date timestamptz,
       organization_id INTEGER REFERENCES organizations (id),
       customer_id INTEGER REFERENCES customers (id))`,
     `CREATE TABLE orders_det (
-      id SERIAL PRIMARY KEY,
+      id SERIAL PRIMARY KEY NOT NULL,
       order_id INTEGER REFERENCES orders (id),
       product_id INTEGER REFERENCES products (id),
       quantity NUMERIC(15, 3),

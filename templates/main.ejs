@@ -9,21 +9,11 @@
 </head>
 <body>
 
-<div class="columns">
-  <div class="column">
-    <%- include('common/menu') %>
-  </div>
-  <% if (list) { %>
-    <div class="column <% if (detail) { %>is-three-fifths<% }else { %>is-four-fifths<% } %>">
-      <%- include('common/list') %>
-    </div>
-  <% } %>
-  <% if (detail) { %>
-    <div class="column<% if (!list) { %> is-four-fifths<% } %>">
-      <%- include('common/detail') %>
-    </div>
-  <% } %>
-</div>
+<% if (data.modal) { %>
+  <%- include(data.modal) %>
+<% } else { %>
+  <%- include('common/menuList') %>
+<% } %>
 
 <script type="text/javascript" src="lib/main.js"></script>
 </body>

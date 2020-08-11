@@ -8,11 +8,11 @@
       </tr>
     </thead>
     <tbody>
-      <% for (let i = 0; i < rows.length; i++) {%>
+      <% for (let i = 0; i < data.rows.length; i++) {%>
         <tr onclick="tableClick(this)">
-          <td><%= rows[i].id %></td>
-          <td><%= rows[i].user_name %></td>
-          <td><%= rows[i].role_name %></td>
+          <td><%= data.rows[i].id %></td>
+          <td><%= data.rows[i].user_name %></td>
+          <td><%= data.rows[i].role_name %></td>
         </tr>
       <% } %>
     </tbody>

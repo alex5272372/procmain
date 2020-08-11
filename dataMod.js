@@ -1,6 +1,6 @@
 const { Client } = require('pg')
 
-async function dataDef(dbName) {
+async function dataMod(dbName) {
   process.env.PGUSER = 'postgres'
   process.env.PGHOST = 'procmain.eu'
   process.env.PGPASSWORD = 'FS9final'
@@ -10,10 +10,10 @@ async function dataDef(dbName) {
 
   const queries = [
     `INSERT INTO users
-    (id, name) VALUES
-    (1, 'gogi'),
-    (2, 'emma'),
-    (3, 'alex')`,
+    (id, username, name, email, tel) VALUES
+    (1, 'gogi', 'Gogi Doe', 'gogi@gmail.com', '+38-063-444-55-66'),
+    (2, 'emma', 'Emma Garfield', 'emma@gmail.com', '+38-067-222-88-45'),
+    (3, 'alex', 'Alex Nikolas', 'alex@gmail.com', '+38-099-234-56-78')`,
     `INSERT INTO roles
     (id, name) VALUES
     (1, 'admin'),
@@ -48,7 +48,7 @@ async function dataDef(dbName) {
 }
 
 try {
-  dataDef('acc')
+  dataMod('acc')
 } catch (err) {
   console.log(err.message)
 }

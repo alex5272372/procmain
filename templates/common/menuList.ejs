@@ -1,0 +1,16 @@
+<div class="columns">
+    <div class="column">
+      <%- include('menu') %>
+    </div>
+    <% if (data.list) { %>
+      <div class="column <% if (data.detail) { %>is-three-fifths<% } else { %>is-four-fifths<% } %>">
+        <%- include('list') %>
+      </div>
+    <% } %>
+    <% if (data.detail) { %>
+      <div class="column<% if (!data.list) { %> is-four-fifths<% } %>">
+        <%- include('detail') %>
+      </div>
+    <% } %>
+  </div>
+  
