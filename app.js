@@ -1,5 +1,4 @@
 const express = require('express')
-const { json } = require('body-parser')
 
 if (!process.env.PORT) process.env.PORT = 3000
 process.env.PGUSER = 'postgres'
@@ -14,7 +13,7 @@ app.set('views', __dirname + '/templates')
 app.set('view engine', 'ejs')
 
 app.use(express.static(__dirname + '/public'))
-app.use(json())
+app.use(express.json())
 
 require('./routes/balance')(app)
 require('./routes/customers')(app)
