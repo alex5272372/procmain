@@ -1,22 +1,12 @@
 import { NextPage } from 'next'
-import { useSession, signIn, signOut } from 'next-auth/react'
+import Layout from '../components/Layout'
 
 const IndexPage: NextPage = () => {
-  const { data: session } = useSession()
-  if (session) {
-    return (
-      <>
-        Signed in as {session.user?.email} <br />
-        <button onClick={() => signOut()}>Sign out</button>
-      </>
-    )
-  }
-  return (
-    <>
-      Not signed in <br />
-      <button onClick={() => signIn()}>Sign in</button>
-    </>
-  )
+  return <Layout><main className="content">
+    <div className='has-text-centered'>
+      <h1>PROCMAIN<br />accounting platform</h1>
+    </div>
+  </main></Layout>
 }
 
 export default IndexPage
