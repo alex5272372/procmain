@@ -1,5 +1,5 @@
-import { NextPage } from "next"
-import { useSession, signIn, signOut } from "next-auth/react"
+import { NextPage } from 'next'
+import { useSession, signIn, signOut } from 'next-auth/react'
 
 const IndexPage: NextPage = () => {
   const { data: session } = useSession()
