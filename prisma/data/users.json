@@ -1,0 +1,17 @@
+[
+  {
+    "email": "alex5272372@gmail.com",
+    "_password": "crypt('alex5272372')",
+    "userRoles": { "create": [
+      { "role": "ADMINISTRATOR" },
+      { "role": "MODERATOR" }
+    ]}
+  },
+  {
+    "email": "jsmith@test.com",
+    "_password": "crypt('jsmith')",
+    "userRoles": { "create": [
+      { "role": "MODERATOR" }
+    ]}
+  }
+]
