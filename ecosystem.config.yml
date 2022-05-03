@@ -1,0 +1,22 @@
+---
+apps:
+- name: 'pm-dev'
+  script: yarn start
+  cwd: ./pm-dev
+  max_restarts: 10
+  restart_delay: 10000
+  env:
+    NODE_ENV: development
+    DATABASE_URL: postgresql://postgres:renifd22@ec2-3-135-92-125.us-east-2.compute.amazonaws.com:5432/pmd
+    NEXTAUTH_URL: https://dev.procmain.com
+    SECRET: shadbdigfvjugvacai
+- name: 'pm-prod'
+  script: yarn prod
+  cwd: ./pm-dev
+  max_restarts: 10
+  restart_delay: 10000
+  env:
+    NODE_ENV: production
+    DATABASE_URL: postgresql://postgres:renifd22@ec2-3-135-92-125.us-east-2.compute.amazonaws.com:5432/pm
+    NEXTAUTH_URL: https://procmain.com
+    SECRET: shadbdigfvjugvacai
