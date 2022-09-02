@@ -4,7 +4,7 @@ import Layout from '../components/Layout'
 const IndexPage: NextPage = () => {
   return <Layout><main className="content">
     <div className='has-text-centered'>
-      <h1>PROCMAIN<br />accounting platform</h1>
+      <h1>Accounting platform</h1>
     </div>
   </main></Layout>
 }

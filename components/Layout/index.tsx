@@ -14,7 +14,7 @@ const Layout: NextPage<{
   return <>
     <Head>
       <link rel='icon' href='/favicon.ico' />
-      <title>Hireterra</title>
+      <title>Procmain</title>
     </Head>
     <Header />
     {session ? children : <AccessDenied />}
