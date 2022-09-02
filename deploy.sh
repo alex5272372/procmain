@@ -1,6 +1,6 @@
 #!/bin/bash
-cd ~/awesome-nextapp
+cd ~/pm-prod
 git pull
 yarn install
 yarn build
-pm2 restart nextapp
+pm2 restart pm-prod
