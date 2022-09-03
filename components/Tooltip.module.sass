@@ -1,0 +1,30 @@
+.tooltip
+  position: relative
+
+.tooltip .tooltiptext
+  visibility: hidden
+
+  position: absolute
+  bottom: 100%
+  left: 50%
+  width: 200px
+
+  background-color: black
+  color: #fff
+  text-align: center
+  margin-left: -100px
+  padding: 5px
+  border-radius: 6px
+
+.tooltip:hover .tooltiptext
+  visibility: visible
+
+.tooltip .tooltiptext::after
+  content: " "
+  position: absolute
+  top: 100%
+  left: 50%
+  margin-left: -5px
+  border-width: 5px
+  border-style: solid
+  border-color: black transparent transparent transparent

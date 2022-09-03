@@ -21,7 +21,8 @@ export const UsersQuery = extendType({
       resolve: async (_source, args: any, context: Context) =>
         await context.prisma.user.findMany({
           skip: args.limit * (args.page - 1),
-          take: args.limit)
+          take: args.limit
+        })
     }),
     t.nonNull.int('usersCount', {
       resolve: async (_source, _args, context: Context) =>
