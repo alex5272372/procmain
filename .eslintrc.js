@@ -1,5 +1,9 @@
 module.exports = {
   extends: 'next/core-web-vitals',
+  ignorePatterns: [
+    '/graphql/nexus-typegen.ts',
+    '/graphql/schema.graphql'
+  ],
   rules: {
     indent: ['error', 2],
     'linebreak-style': ['error', 'unix'],

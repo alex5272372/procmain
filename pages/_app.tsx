@@ -1,13 +1,13 @@
+import '../styles/global.sass'
+import { AppProps } from 'next/dist/shared/lib/router/router'
 import { SessionProvider } from 'next-auth/react'
-import { AppProps } from 'next/app'
-import '../styles/globals.sass'
+import { ApolloProvider } from '@apollo/client'
+import apolloClient from '../lib/apollo'
 
-const App = ({ Component, pageProps }: AppProps) => {
-  return (
-    <SessionProvider>
+export default function App({ Component, pageProps }: AppProps) {
+  return <SessionProvider>
+    <ApolloProvider client={apolloClient}>
       <Component {...pageProps} />
-    </SessionProvider>
-  )
+    </ApolloProvider>
+  </SessionProvider>
 }
-
-export default App

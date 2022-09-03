@@ -1,6 +1,11 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-}
+module.exports = {
+  reactStrictMode: false,
 
-module.exports = nextConfig
+  webpack: (config, { isServer }) => {
+    if (isServer) {
+      config.externals.push('_http_common')
+    }
+    return config
+  }
+}
