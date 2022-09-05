@@ -7,10 +7,125 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
+model Account {
+  id     Int    @id @default(autoincrement())
+  name   String @db.VarChar(80) @unique
+  drCr   DrCr?  @map("dr_cr")
+  status Int    @default(0)
+
+  generalLedger GeneralLedger[]
+
+  @@map("accounts")
+}
+
+model Change {
+  dest   String @db.VarChar(40)
+  tbl    String @db.VarChar(40)
+  id     Int
+  status Int    @default(0)
+
+  @@id([dest, tbl, id])
+  @@map("changes")
+}
+
+model GeneralLedger {
   id          Int      @id @default(autoincrement())
-  email       String   @db.VarChar(80) @unique @default("")
-  password    String?  @db.VarChar(80)
+  date        DateTime @db.Timestamptz(6) @default(now())
+  drCr        DrCr     @map("dr_cr")
+  accountId   Int      @map("account_id")
+  particulars String?  @db.VarChar(80)
+  amount      Int
+
+  account Account @relation(fields: [accountId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@map("general_ledger")
+}
+
+model Product {
+  id     Int    @id @default(autoincrement())
+  name   String @db.VarChar(80) @unique
+  status Int    @default(0)
+
+  salesInvoicesProducts     SaleInvoiceProduct[]
+  suppliersInvoicesProducts SupplierInvoiceProduct[]
+  warehouse                 Warehouse[]
+
+  @@map("products")
+}
+
+model ReportParam {
+  id        Int     @id @default(autoincrement())
+  tbl       String  @db.VarChar(40)
+  col       String  @db.VarChar(40)
+  condition String? @db.VarChar(80)
+  options   Json?
+
+  @@map("report_params")
+}
+
+model SaleInvoice {
+  id   Int      @id @default(autoincrement())
+  date DateTime @db.Timestamptz(6) @default(now())
+
+  saleInvoiceProducts SaleInvoiceProduct[]
+
+  @@map("sales_invoices")
+}
+
+model SaleInvoiceProduct {
+  id            Int @id @default(autoincrement())
+  saleInvoiceId Int @map("sale_invoice_id")
+  productId     Int @map("product_id")
+  quantity      Int
+  price         Int
+
+  saleInvoice SaleInvoice @relation(fields: [saleInvoiceId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  product     Product     @relation(fields: [productId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@map("sales_invoices_products")
+}
+
+model Scheduler {
+  id        Int       @id @default(autoincrement())
+  planTime  DateTime  @default(now()) @db.Timestamptz(6) @map("plan_time")
+  repeat    Int       @default(0)
+  task      Task
+  options   Json?     @default("{}")
+  status    Int       @default(0)
+  startTime DateTime? @db.Timestamptz(6) @map("start_time")
+  endTime   DateTime? @db.Timestamptz(6) @map("end_time")
+  result    String?   @db.VarChar(200)
+
+  @@map("scheduler")
+}
+
+model SupplierInvoice {
+  id   Int      @id @default(autoincrement())
+  date DateTime @db.Timestamptz(6) @default(now())
+
+  supplierInvoiceProducts SupplierInvoiceProduct[]
+
+  @@map("suppliers_invoices")
+}
+
+model SupplierInvoiceProduct {
+  id                Int @id @default(autoincrement())
+  supplierInvoiceId Int @map("supplier_invoice_id")
+  productId         Int @map("product_id")
+  quantity          Int
+  price             Int
+
+  supplierInvoice SupplierInvoice @relation(fields: [supplierInvoiceId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  product         Product         @relation(fields: [productId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@map("suppliers_invoices_products")
+}
+
+model User {
+  id          Int     @id @default(autoincrement())
+  email       String  @db.VarChar(80) @unique @default("")
+  password    String? @db.VarChar(80)
+  status      Int     @default(0)
 
   userRoles             UserRole[]
 
@@ -27,9 +142,33 @@ model UserRole {
   @@map("users_roles")
 }
 
+model Warehouse {
+  id        Int      @id @default(autoincrement())
+  date      DateTime @db.Timestamptz(6) @default(now())
+  productId Int      @map("product_id")
+  quantity  Int
+
+  product Product @relation(fields: [productId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@map("warehouse")
+}
+
+enum DrCr {
+  DEBIT
+  CREDIT
+
+  @@map("dr_cr")
+}
+
 enum Role {
   ADMINISTRATOR
   MODERATOR
 
   @@map("role")
+}
+
+enum Task {
+  DELETE_OBJECTS
+
+  @@map("task")
 }

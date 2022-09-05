@@ -20,16 +20,27 @@ export const sitemap: MenuItem[] = [
   ] },
   { path: '/?label=Catalogs', label: 'Catalogs', items: [
     { path: '/list/users', label: 'Users list',
-      items: [{ path: '/detail/user', label: 'User detail' }] }
+      items: [{ path: '/detail/user', label: 'User detail' }] },
+    { path: '/list/products', label: 'Products list',
+      items: [{ path: '/detail/product', label: 'Product detail' }] },
+    { path: '/list/accounts', label: 'Chart of Accounts',
+      items: [{ path: '/detail/account', label: 'Account detail' }] }
   ] },
   { path: '/?label=Documents', label: 'Documents', items: [
-    { path: '/list/invoices', label: 'Invoices list',
-      items: [{ path: '/detail/invoice', label: 'Invoice detail' }] },
-    { path: '/list/orders', label: 'Orders list',
-      items: [{ path: '/detail/order', label: 'Order detail' }] }
+    { path: '/list/suppliers_invoices', label: 'Suppliers invoices list',
+      items: [{ path: '/detail/supplier_invoice', label: 'Supplier invoice detail' }] },
+    { path: '/list/sales_invoices', label: 'Sales invoices list',
+      items: [{ path: '/detail/sale_invoice', label: 'Sale invoice detail' }] },
+    { path: '/list/warehouse', label: 'Warehouse journal',
+      items: [{ path: '/detail/general_ledger', label: 'General Ledger detail' }] },
+    { path: '/list/general_ledger', label: 'General Ledger',
+      items: [{ path: '/detail/general_ledger', label: 'General Ledger detail' }] }
   ] },
   { path: '/?label=Reports', label: 'Reports', items: [
-    { path: '/report/profit_loss', label: 'Profit and Loss' }
+    { path: '/report/trial_balance', label: 'Trial balance' },
+    { path: '/report/balance_sheet', label: 'Balance sheet' },
+    { path: '/report/cash_flow', label: 'Cash flow statement' },
+    { path: '/report/income', label: 'Income statement' }
   ] }
 ]
 
