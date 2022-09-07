@@ -127,7 +127,7 @@ const Footer: NextPage<{ count?: number, fetchMore?: any }> = ({ count, fetchMor
       <ul className='level-item'>
         <li className={breadcrumb.length === 0 ? 'is-active' : ''}>
           <Link href="/">
-            {breadcrumb.length === 0 ? <a aria-current="page">Procmain</a> : <a>Procmaina</a>}
+            {breadcrumb.length === 0 ? <a aria-current="page">Procmain</a> : <a>Procmain</a>}
           </Link>
         </li>
         {breadcrumb.map((bc: MenuItem, i: number) =>

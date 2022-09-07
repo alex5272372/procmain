@@ -3,11 +3,34 @@
 
 
 type Mutation {
+  deleteProduct(id: Int!): Product!
   deleteUser(id: Int!): User!
+  updateProduct(data: ProductInput!, id: Int!): Product!
   updateUser(data: UserInput!, id: Int!): User!
 }
 
+type Product {
+  id: Int!
+  isDeleted: Boolean
+  isHidden: Boolean
+  name: String
+  status: Int
+}
+
+input ProductInput {
+  name: String
+  statuses: ProductStatusesInput
+}
+
+input ProductStatusesInput {
+  isDeleted: Boolean
+  isHidden: Boolean
+}
+
 type Query {
+  productObject(id: Int!): Product
+  products(limit: Int, page: Int): [Product]!
+  productsCount: Int!
   userObject(id: Int!): User
   users(limit: Int, page: Int): [User]!
   usersCount: Int!

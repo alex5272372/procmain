@@ -8,12 +8,12 @@ import IconFormatter from '../../components/Grid/IconFormatter'
 import Layout from '../../components/Layout'
 import { Key, useState } from 'react'
 import DataGridToolbar from '../../components/Grid/DataGrid/Toolbar'
-import { statuses } from '../detail/user'
+import { statuses } from '../detail/product'
 
-const UsersList: NextPage = () => {
+const ProductsList: NextPage = () => {
   const columns: Column<TRow, unknown>[] = [
     { key: 'id', name: 'ID', minWidth: 30, width: 60, resizable: true },
-    { key: 'email', name: 'Email', minWidth: 100, width: 200, resizable: true }
+    { key: 'name', name: 'Name', minWidth: 100, width: 200, resizable: true }
   ]
 
   statuses.forEach((st: { key: string, name: string }) => {
@@ -22,15 +22,14 @@ const UsersList: NextPage = () => {
   })
 
   const query: DocumentNode = gql`
-  query UsersList($limit: Int, $page: Int) {
-    users(limit: $limit, page: $page) {
+  query ProductsList($limit: Int, $page: Int) {
+    products(limit: $limit, page: $page) {
       id
-      email
+      name
       isDeleted
-      isSuspended
-      isEmailVerified
+      isHidden
     }
-    usersCount
+    productsCount
   }`
 
   const { data, error, loading, fetchMore } = useQuery(query, {
@@ -46,13 +45,13 @@ const UsersList: NextPage = () => {
 
   const main = {
     columns,
-    rows: data?.users || [],
-    detail: 'user',
+    rows: data?.products || [],
+    detail: 'product',
     rowKey: ['id']
   }
 
   const pagination = {
-    count: data?.usersCount || 0,
+    count: data?.productsCount || 0,
     fetchMore
   }
 
@@ -64,10 +63,10 @@ const UsersList: NextPage = () => {
     Main={DataGrid}
     toolbar={toolbar}
     main={main}
-    loading={{ UsersList: loading }}
+    loading={{ ProductsList: loading }}
     errors={errorsProp}
     pagination={pagination}
   />
 }
 
-export default UsersList
+export default ProductsList

@@ -46,6 +46,9 @@ export const getTitle = (detail: string, ...rest: (string | null | undefined)[])
     title = `${rest[1]} (${rest[0]})`
     key = `/detail/user?id=${rest[0]}`
 
+  } else if (detail === 'product') {
+    title = `${rest[1]} (${rest[0]})`
+    key = `/detail/product?id=${rest[0]}`
   }
 
   return { title, key }

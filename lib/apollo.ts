@@ -2,6 +2,7 @@ import { ApolloClient, InMemoryCache } from '@apollo/client'
 
 const cache = new InMemoryCache({
   typePolicies: { Query: { fields: {
+    products: { keyArgs: false },
     users: { keyArgs: false }
   }}}
 })

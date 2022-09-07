@@ -30,7 +30,9 @@ export const sitemap: MenuItem[] = [
     { path: '/list/suppliers_invoices', label: 'Suppliers invoices list',
       items: [{ path: '/detail/supplier_invoice', label: 'Supplier invoice detail' }] },
     { path: '/list/sales_invoices', label: 'Sales invoices list',
-      items: [{ path: '/detail/sale_invoice', label: 'Sale invoice detail' }] },
+      items: [{ path: '/detail/sale_invoice', label: 'Sale invoice detail' }] }
+  ] },
+  { path: '/?label=Registers', label: 'Registers', items: [
     { path: '/list/warehouse', label: 'Warehouse journal',
       items: [{ path: '/detail/general_ledger', label: 'General Ledger detail' }] },
     { path: '/list/general_ledger', label: 'General Ledger',

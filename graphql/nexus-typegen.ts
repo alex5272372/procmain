@@ -14,6 +14,14 @@ declare global {
 }
 
 export interface NexusGenInputs {
+  ProductInput: { // input type
+    name?: string | null; // String
+    statuses?: NexusGenInputs['ProductStatusesInput'] | null; // ProductStatusesInput
+  }
+  ProductStatusesInput: { // input type
+    isDeleted?: boolean | null; // Boolean
+    isHidden?: boolean | null; // Boolean
+  }
   UserInput: { // input type
     email?: string | null; // String
     statuses?: NexusGenInputs['UserStatusesInput'] | null; // UserStatusesInput
@@ -38,6 +46,11 @@ export interface NexusGenScalars {
 
 export interface NexusGenObjects {
   Mutation: {};
+  Product: { // root type
+    id: number; // Int!
+    name?: string | null; // String
+    status?: number | null; // Int
+  }
   Query: {};
   User: { // root type
     email?: string | null; // String
@@ -58,10 +71,22 @@ export type NexusGenAllTypes = NexusGenRootTypes & NexusGenScalars
 
 export interface NexusGenFieldTypes {
   Mutation: { // field return type
+    deleteProduct: NexusGenRootTypes['Product']; // Product!
     deleteUser: NexusGenRootTypes['User']; // User!
+    updateProduct: NexusGenRootTypes['Product']; // Product!
     updateUser: NexusGenRootTypes['User']; // User!
   }
+  Product: { // field return type
+    id: number; // Int!
+    isDeleted: boolean | null; // Boolean
+    isHidden: boolean | null; // Boolean
+    name: string | null; // String
+    status: number | null; // Int
+  }
   Query: { // field return type
+    productObject: NexusGenRootTypes['Product'] | null; // Product
+    products: Array<NexusGenRootTypes['Product'] | null>; // [Product]!
+    productsCount: number; // Int!
     userObject: NexusGenRootTypes['User'] | null; // User
     users: Array<NexusGenRootTypes['User'] | null>; // [User]!
     usersCount: number; // Int!
@@ -78,10 +103,22 @@ export interface NexusGenFieldTypes {
 
 export interface NexusGenFieldTypeNames {
   Mutation: { // field return type name
+    deleteProduct: 'Product'
     deleteUser: 'User'
+    updateProduct: 'Product'
     updateUser: 'User'
   }
+  Product: { // field return type name
+    id: 'Int'
+    isDeleted: 'Boolean'
+    isHidden: 'Boolean'
+    name: 'String'
+    status: 'Int'
+  }
   Query: { // field return type name
+    productObject: 'Product'
+    products: 'Product'
+    productsCount: 'Int'
     userObject: 'User'
     users: 'User'
     usersCount: 'Int'
@@ -98,7 +135,14 @@ export interface NexusGenFieldTypeNames {
 
 export interface NexusGenArgTypes {
   Mutation: {
+    deleteProduct: { // args
+      id: number; // Int!
+    }
     deleteUser: { // args
+      id: number; // Int!
+    }
+    updateProduct: { // args
+      data: NexusGenInputs['ProductInput']; // ProductInput!
       id: number; // Int!
     }
     updateUser: { // args
@@ -107,6 +151,13 @@ export interface NexusGenArgTypes {
     }
   }
   Query: {
+    productObject: { // args
+      id: number; // Int!
+    }
+    products: { // args
+      limit?: number | null; // Int
+      page?: number | null; // Int
+    }
     userObject: { // args
       id: number; // Int!
     }
